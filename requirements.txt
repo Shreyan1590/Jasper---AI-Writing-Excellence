@@ -1,0 +1,10 @@
+PyQt5==5.15.9
+nltk==3.8.1
+transformers==4.36.2
+torch==2.1.1
+spacy==3.7.2
+requests==2.31.0
+pyinstaller==5.13.0
+language-tool-python==2.7.1
+difflib==0.1.0
+numpy==1.24.3
