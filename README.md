@@ -261,5 +261,5 @@ MIT License – see LICENSE file
 - AI Content Detection API  
 - Multilingual Text Processor  
 
-Made with ❤️ by Shreyan S
+Made by [Shreyan S](https://shreyan-portfolio.vercel.app/) with ❤️ by Shreyan S
 
