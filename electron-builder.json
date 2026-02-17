@@ -1,0 +1,28 @@
+{
+    "appId": "com.shreyan.jasper",
+    "productName": "Jasper",
+    "executableName": "Jasper",
+    "artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
+    "directories": {
+        "output": "dist"
+    },
+    "files": [
+        "electron/**/*",
+        "frontend/dist/**/*",
+        "backend/**/*.py",
+        "assets/**/*"
+    ],
+    "asarUnpack": [
+        "backend/**/*"
+    ],
+    "win": {
+        "target": [
+            {
+                "target": "portable",
+                "arch": [
+                    "x64"
+                ]
+            }
+        ]
+    }
+}

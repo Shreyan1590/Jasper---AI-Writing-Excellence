@@ -2,23 +2,25 @@
 venv/
 .venv/
 env/
-bin/
-include/
-lib/
-share/
-pyvenv.cfg
 
-# Python build/dist
+# Python
 build/
-dist/
-*.egg-info/
-
-# Python cache
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
+*.egg-info/
 
-# Operating system files
+# Node.js
+node_modules/
+
+# Electron builder
+dist/
+out/
+
+# Logs
+*.log
+
+# OS
 .DS_Store
 Thumbs.db
