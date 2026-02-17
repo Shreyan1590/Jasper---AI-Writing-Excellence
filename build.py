@@ -1,6 +1,10 @@
 import PyInstaller.__main__
 import os
 import shutil
+import sys
+
+# Increase recursion depth for complex package analysis (transformers, torch)
+sys.setrecursionlimit(5000)
 
 def build_app():
     # Create build directory if it doesn't exist

@@ -37,34 +37,29 @@ def download_nltk_data():
     
     for data in required_data:
         try:
-            nltk.data.find(f'tokenizers/{data}')
-            print(f"{data} already downloaded")
-        except LookupError:
+            print(f"Checking/Downloading {data}...")
+            nltk.download(data, quiet=True)
+        except Exception as e:
+            print(f"Failed to download {data}: {e}")
+            # Try alternative download method
             try:
-                print(f"Downloading {data}...")
-                nltk.download(data, quiet=True)
-                print(f"Downloaded {data} successfully")
-            except Exception as e:
-                print(f"Failed to download {data}: {e}")
-                # Try alternative download method
-                try:
-                    if data == 'punkt_tab':
-                        # Manual download for punkt_tab
-                        url = "https://raw.githubusercontent.com/nltk/nltk_data/gh-pages/packages/tokenizers/punkt_tab.zip"
-                        download_path = os.path.join(nltk_data_path, 'tokenizers', 'punkt_tab.zip')
-                        os.makedirs(os.path.dirname(download_path), exist_ok=True)
-                        
-                        with urllib.request.urlopen(url) as response:
-                            with open(download_path, 'wb') as out_file:
-                                out_file.write(response.read())
-                        
-                        with zipfile.ZipFile(download_path, 'r') as zip_ref:
-                            zip_ref.extractall(os.path.join(nltk_data_path, 'tokenizers'))
-                        
-                        os.remove(download_path)
-                        print("Manually downloaded punkt_tab")
-                except Exception as manual_error:
-                    print(f"Manual download also failed: {manual_error}")
+                if data == 'punkt_tab':
+                    # Manual download for punkt_tab
+                    url = "https://raw.githubusercontent.com/nltk/nltk_data/gh-pages/packages/tokenizers/punkt_tab.zip"
+                    download_path = os.path.join(nltk_data_path, 'tokenizers', 'punkt_tab.zip')
+                    os.makedirs(os.path.dirname(download_path), exist_ok=True)
+                    
+                    with urllib.request.urlopen(url) as response:
+                        with open(download_path, 'wb') as out_file:
+                            out_file.write(response.read())
+                    
+                    with zipfile.ZipFile(download_path, 'r') as zip_ref:
+                        zip_ref.extractall(os.path.join(nltk_data_path, 'tokenizers'))
+                    
+                    os.remove(download_path)
+                    print("Manually downloaded punkt_tab")
+            except Exception as manual_error:
+                print(f"Manual download also failed: {manual_error}")
 
 # Download NLTK data on import
 download_nltk_data()
