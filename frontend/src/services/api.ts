@@ -1,9 +1,10 @@
 import axios from 'axios';
 
-const BACKEND = 'http://127.0.0.1:5123';
+// Replace the URL string below with your actual deployed Cloudflare backend URL
+const API_BASE_URL = 'https://your-backend-url.cloudflare.app';
 
 const api = axios.create({
-    baseURL: BACKEND,
+    baseURL: API_BASE_URL,
     timeout: 120_000,
     headers: { 'Content-Type': 'application/json' },
 });
@@ -96,7 +97,7 @@ const apiService = {
         });
     },
 
-    getBackendUrl: async () => BACKEND,
+    getBackendUrl: async () => API_BASE_URL,
 };
 
 export default apiService;

@@ -7,7 +7,7 @@
   "scripts": {
     "start": "electron .",
     "dev": "set ELECTRON_DEV=1 && electron .",
-    "build:frontend": "cd frontend && npm run build",
+    "build:frontend": "cd frontend && npm install && npm run build",
     "build": "npm run build:frontend && electron-builder --win",
     "build:dir": "npm run build:frontend && electron-builder --win --dir"
   },
