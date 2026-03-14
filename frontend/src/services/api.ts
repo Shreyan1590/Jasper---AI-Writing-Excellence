@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// Replace the URL string below with your actual deployed Cloudflare backend URL
-const API_BASE_URL = 'https://your-backend-url.cloudflare.app';
+// The backend URL is now sourced from environment variables (Vite prefix required)
+const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || 'http://127.0.0.1:5123';
 
 const api = axios.create({
     baseURL: API_BASE_URL,

@@ -1,0 +1,3 @@
+name = "backend-service"
+main = "backend/server.py"
+compatibility_date = "2026-03-14"
