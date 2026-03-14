@@ -24,3 +24,8 @@ out/
 # OS
 .DS_Store
 Thumbs.db
+
+# Build Executables
+Jasper-2.0.0-win-x64.exe
+jasper-backend.exe
+Jasper-Unified.exe
