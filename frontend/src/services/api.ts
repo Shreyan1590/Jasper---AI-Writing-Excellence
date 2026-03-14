@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// The backend URL is now sourced from environment variables (Vite prefix required)
-const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || 'http://127.0.0.1:5123';
+// The backend URL for production builds and Electron packaging
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://jasper.info-skillxpress.workers.dev';
 
 const api = axios.create({
     baseURL: API_BASE_URL,
