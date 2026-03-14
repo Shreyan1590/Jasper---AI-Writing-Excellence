@@ -8,7 +8,7 @@
     "start": "electron .",
     "dev": "set ELECTRON_DEV=1 && electron .",
     "build:frontend": "cd frontend && npm install && npm run build",
-    "build": "npm run build:frontend",
+    "build": "npm run build:all",
     "build:all": "npm run build:frontend && electron-builder --win",
     "build:dir": "npm run build:frontend && electron-builder --win --dir"
   },
