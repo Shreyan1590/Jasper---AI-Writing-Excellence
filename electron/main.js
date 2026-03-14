@@ -12,14 +12,10 @@ const VITE_DEV_URL = 'http://localhost:5173';
    ================================================================ */
 function createWindow() {
     mainWindow = new BrowserWindow({
-        width: 1360,
-        height: 900,
-        minWidth: 1000,
-        minHeight: 680,
-        title: 'Jasper — AI Writing Excellence',
-        icon: path.join(__dirname, '..', 'assets', 'icon.ico'),
-        backgroundColor: '#080c18',
-        show: false,
+        width: 1024,
+        height: 768,
+        show: false,                 // create hidden
+        backgroundColor: '#ffffff',
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
             contextIsolation: true,
@@ -36,8 +32,7 @@ function createWindow() {
     }
 
     mainWindow.once('ready-to-show', () => {
-        mainWindow.show();
-        mainWindow.focus();
+        mainWindow.show();                  // show immediately when ready
     });
 
     mainWindow.on('closed', () => {
