@@ -2,6 +2,7 @@ import { useState } from 'react';
 import ToolView from '../components/ToolView';
 import { useToast } from '../components/Toast';
 import apiService, { GrammarResult, AIDetectResult, PlagiarismResult } from '../services/api';
+import { MdCheckCircle, MdSmartToy, MdDescription, MdSearch, MdInfo } from 'react-icons/md';
 
 /* ================================================================
    GRAMMAR VIEW
@@ -50,7 +51,7 @@ export function GrammarView() {
                             ))}
                         </div>
                     ) : (
-                        <div className="success-msg">✓ No grammar issues found!</div>
+                        <div className="success-msg"><MdCheckCircle /> No grammar issues found!</div>
                     )}
                 </div>
             ) : null}
@@ -161,7 +162,7 @@ export function PlagiarismView() {
                             ))}
                         </div>
                     ) : (
-                        <div className="success-msg">✓ No plagiarism detected</div>
+                        <div className="success-msg"><MdCheckCircle /> No plagiarism detected</div>
                     )}
                 </div>
             ) : null}

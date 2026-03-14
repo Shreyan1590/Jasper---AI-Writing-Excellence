@@ -1,4 +1,5 @@
 import { Component, ErrorInfo, ReactNode } from 'react';
+import { MdWarning } from 'react-icons/md';
 
 interface Props { children: ReactNode; }
 interface State { hasError: boolean; error: Error | null }
@@ -18,7 +19,7 @@ export default class ErrorBoundary extends Component<Props, State> {
         if (this.state.hasError) {
             return (
                 <div className="error-boundary">
-                    <div className="error-boundary-icon">⚠</div>
+                    <div className="error-boundary-icon"><MdWarning size={48} /></div>
                     <h2>Something went wrong</h2>
                     <p>{this.state.error?.message}</p>
                     <button

@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useCallback, ReactNode } from 'react';
+import { MdCheckCircle, MdError, MdWarning, MdInfo } from 'react-icons/md';
 
 type ToastType = 'success' | 'error' | 'info' | 'warning';
 
@@ -35,7 +36,10 @@ export function ToastProvider({ children }: { children: ReactNode }) {
                 {toasts.map((t) => (
                     <div key={t.id} className={`toast toast-${t.type}`}>
                         <span className="toast-icon">
-                            {t.type === 'success' ? '✓' : t.type === 'error' ? '✕' : t.type === 'warning' ? '⚠' : 'ℹ'}
+                            {t.type === 'success' && <MdCheckCircle size={20} />}
+                            {t.type === 'error' && <MdError size={20} />}
+                            {t.type === 'warning' && <MdWarning size={20} />}
+                            {t.type === 'info' && <MdInfo size={20} />}
                         </span>
                         <span className="toast-content">{t.message}</span>
                     </div>

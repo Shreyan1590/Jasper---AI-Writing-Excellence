@@ -1,4 +1,14 @@
 import { useState } from 'react';
+import { 
+    MdFileUpload, 
+    MdSearch, 
+    MdInsertDriveFile, 
+    MdSmartToy, 
+    MdInfo, 
+    MdLink, 
+    MdCheckCircle,
+    MdDescription
+} from 'react-icons/md';
 import { useToast } from '../components/Toast';
 import Button from '../components/Button';
 import apiService from '../services/api';
@@ -122,7 +132,7 @@ export default function DetectionView() {
                                 onChange={handleFileUpload}
                                 style={{ display: 'none' }}
                             />
-                            📁 Load File
+                            <MdFileUpload size={18} style={{ marginRight: 'var(--space-2)' }} /> Load File
                         </label>
                     </div>
                     <div className="input-group">
@@ -160,7 +170,7 @@ export default function DetectionView() {
                             onClick={handleDetect}
                             loading={isLoading}
                         >
-                            🔍 Analyze
+                            Analyze
                         </Button>
                     </div>
                 </div>
@@ -170,7 +180,9 @@ export default function DetectionView() {
                     <div className="grid gap-4">
                         {results.plagiarism && (
                             <div className="card">
-                                <h2 className="card-title mb-4">📄 Plagiarism Analysis</h2>
+                                <h2 className="card-title mb-4" style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
+                                    <MdDescription size={24} /> Plagiarism Analysis
+                                </h2>
 
                                 <div className="flex items-center justify-between mb-6" style={{ padding: 'var(--space-6)', background: 'var(--surface)', borderRadius: 'var(--radius-md)' }}>
                                     <div style={{ textAlign: 'center', flex: 1 }}>
@@ -188,7 +200,7 @@ export default function DetectionView() {
 
                                 {results.plagiarism.note && (
                                     <div style={{ background: 'var(--primary-light)', padding: 'var(--space-4)', borderRadius: 'var(--radius-sm)', marginBottom: 'var(--space-4)', fontSize: 'var(--text-sm)' }}>
-                                        ℹ️ {results.plagiarism.note}
+                                        <MdInfo size={16} style={{ marginRight: 'var(--space-1)', verticalAlign: 'middle' }} /> {results.plagiarism.note}
                                     </div>
                                 )}
 
@@ -210,7 +222,7 @@ export default function DetectionView() {
                                                         Source: <strong style={{ color: 'var(--primary)' }}>{match.matched_source}</strong>
                                                         {match.source_url && (
                                                             <a href={match.source_url} target="_blank" rel="noopener noreferrer" style={{ marginLeft: 'var(--space-2)', color: 'var(--primary)' }}>
-                                                                🔗
+                                                                <MdLink size={14} />
                                                             </a>
                                                         )}
                                                     </p>
@@ -228,7 +240,9 @@ export default function DetectionView() {
 
                         {results.ai_detection && (
                             <div className="card">
-                                <h2 className="card-title mb-4">🤖 AI Content Detection</h2>
+                                <h2 className="card-title mb-4" style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
+                                    <MdSmartToy size={24} /> AI Content Detection
+                                </h2>
 
                                 <div className="flex items-center justify-between mb-6" style={{ padding: 'var(--space-6)', background: 'var(--surface)', borderRadius: 'var(--radius-md)' }}>
                                     <div style={{ textAlign: 'center', flex: 1 }}>

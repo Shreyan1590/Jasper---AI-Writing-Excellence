@@ -1,3 +1,16 @@
+import { 
+    MdSearch, 
+    MdPerson, 
+    MdDescription, 
+    MdAutorenew, 
+    MdCheckCircle, 
+    MdSmartToy,
+    MdTrendingUp,
+    MdInsertDriveFile,
+    MdQueryStats,
+    MdTimer,
+    MdAttachMoney
+} from 'react-icons/md';
 import StatCard from './StatCard';
 import Button from './Button';
 
@@ -11,37 +24,37 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             id: 'detection',
             label: 'AI + Plagiarism Detection',
             description: 'Advanced detection with real algorithms',
-            icon: '🔍'
+            icon: <MdSearch size={32} color="var(--primary)" />
         },
         {
             id: 'humanize',
             label: 'AI to Human Text',
             description: 'Convert AI-generated text to human-like',
-            icon: '👤'
+            icon: <MdPerson size={32} color="var(--primary)" />
         },
         {
             id: 'summarize',
             label: 'Text Summarizer',
             description: 'Intelligent document summarization',
-            icon: '📝'
+            icon: <MdDescription size={32} color="var(--primary)" />
         },
         {
             id: 'paraphrase',
             label: 'Paraphraser',
             description: 'Rephrase with multiple variations',
-            icon: '🔄'
+            icon: <MdAutorenew size={32} color="var(--primary)" />
         },
         {
             id: 'grammar',
             label: 'Grammar Checker',
             description: 'Fix grammar and improve writing',
-            icon: '✓'
+            icon: <MdCheckCircle size={32} color="var(--primary)" />
         },
         {
             id: 'ai-detect',
             label: 'AI Detector',
             description: 'Detect AI-generated content',
-            icon: '🤖'
+            icon: <MdSmartToy size={32} color="var(--primary)" />
         }
     ];
 
@@ -55,42 +68,24 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
             {/* Statistics */}
             <div className="grid grid-cols-4 gap-4 mb-6">
                 <StatCard
-                    icon={
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                            <polyline points="14 2 14 8 20 8" />
-                        </svg>
-                    }
+                    icon={<MdInsertDriveFile size={20} />}
                     label="Documents Processed"
                     value="1,247"
                     trend={{ value: '12%', direction: 'positive' }}
                 />
                 <StatCard
-                    icon={
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <circle cx="11" cy="11" r="8" />
-                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                        </svg>
-                    }
+                    icon={<MdSearch size={20} />}
                     label="Detections Run"
                     value="523"
                     trend={{ value: '8%', direction: 'positive' }}
                 />
                 <StatCard
-                    icon={
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-                        </svg>
-                    }
+                    icon={<MdQueryStats size={20} />}
                     label="Avg. Accuracy"
                     value="96.8%"
                 />
                 <StatCard
-                    icon={
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-                        </svg>
-                    }
+                    icon={<MdTimer size={20} />}
                     label="Time Saved"
                     value="142h"
                     trend={{ value: '24%', direction: 'positive' }}
@@ -110,7 +105,7 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                             style={{ cursor: 'pointer' }}
                             onClick={() => onNavigate(tool.id)}
                         >
-                            <div style={{ fontSize: '32px', marginBottom: 'var(--space-3)' }}>
+                            <div style={{ marginBottom: 'var(--space-3)' }}>
                                 {tool.icon}
                             </div>
                             <h3 style={{ fontSize: 'var(--text-base)', marginBottom: 'var(--space-1)' }}>
@@ -131,13 +126,13 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
                 </div>
                 <div className="flex gap-4">
                     <Button variant="primary" onClick={() => onNavigate('detection')}>
-                        🔍 Run Detection
+                        Run Detection
                     </Button>
                     <Button variant="secondary" onClick={() => onNavigate('humanize')}>
-                        👤 Humanize Text
+                        Humanize Text
                     </Button>
                     <Button variant="ghost">
-                        📊 View Reports
+                        View Reports
                     </Button>
                 </div>
             </div>
